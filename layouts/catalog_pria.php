@@ -13,11 +13,13 @@ $query = "SELECT * FROM pria";
                     $kodebrg = $row["kode_brg"];
                     $namabrg = $row["nama_brg"];
                     $ukuran = $row["ukuran"];
-                    $harga = $row["harga"];?>
+                    $harga = $row["harga"];
+                    $nama_gambar = $row["nama_gambar"];
+                    ?>
           <div class="col-md-4 mb-4 text-center">
             <div class="media d-block room mb-0">
               <figure>
-                <img src="assets/images/p1.jpg" alt="Generic placeholder image" class="img-fluid">
+                <img src="upload/<?php echo $nama_gambar; ?>" class="img-fluid">              
               </figure>
               <div class="media-body">
                 <h3 class="mt-0">Product Code : <?php echo $kodebrg; ?></h3>

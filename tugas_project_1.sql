@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2020 at 08:41 PM
+-- Generation Time: Aug 04, 2020 at 09:27 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -31,29 +31,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `anak_anak` (
   `kode_brg` char(8) NOT NULL,
   `nama_brg` char(20) NOT NULL,
-  `ukuran` enum('S','M','L','') NOT NULL,
-  `harga` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `anak_anak`
---
-
-INSERT INTO `anak_anak` (`kode_brg`, `nama_brg`, `ukuran`, `harga`) VALUES
-('A1', 'Batik 1', 'M', 50000),
-('A2', 'Batik 2', 'S', 50000),
-('A3', 'Batik 3', 'L', 65000);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `batik`
---
-
-CREATE TABLE `batik` (
-  `kode_brg` char(8) NOT NULL,
-  `nama_brg` char(20) NOT NULL,
-  `harga` int(10) NOT NULL
+  `ukuran` varchar(250) NOT NULL,
+  `harga` int(10) NOT NULL,
+  `nama_gambar` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -65,18 +45,28 @@ CREATE TABLE `batik` (
 CREATE TABLE `pria` (
   `kode_brg` char(8) NOT NULL,
   `nama_brg` char(20) NOT NULL,
-  `ukuran` enum('S','M','L','XL') NOT NULL,
-  `harga` int(10) NOT NULL
+  `ukuran` varchar(250) NOT NULL,
+  `harga` int(10) NOT NULL,
+  `nama_gambar` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pria`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `pria` (`kode_brg`, `nama_brg`, `ukuran`, `harga`) VALUES
-('P1', 'Batik 1', 'XL', 85000),
-('P2', 'Batik 2', 'L', 90000),
-('P3', 'Batik 3', 'S', 75000);
+INSERT INTO `user` (`username`, `password`) VALUES
+('dhika', '123123aa');
 
 -- --------------------------------------------------------
 
@@ -87,18 +77,10 @@ INSERT INTO `pria` (`kode_brg`, `nama_brg`, `ukuran`, `harga`) VALUES
 CREATE TABLE `wanita` (
   `kode_brg` char(8) NOT NULL,
   `nama_brg` char(20) NOT NULL,
-  `ukuran` enum('S','M','L','XL') NOT NULL,
-  `harga` int(10) NOT NULL
+  `ukuran` varchar(250) NOT NULL,
+  `harga` int(10) NOT NULL,
+  `nama_gambar` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `wanita`
---
-
-INSERT INTO `wanita` (`kode_brg`, `nama_brg`, `ukuran`, `harga`) VALUES
-('W1', 'Batik 1', 'M', 75000),
-('W2', 'Batik 2', 'L', 90000),
-('W3', 'Batik 3', 'M', 85000);
 
 --
 -- Indexes for dumped tables
@@ -111,34 +93,22 @@ ALTER TABLE `anak_anak`
   ADD PRIMARY KEY (`kode_brg`);
 
 --
--- Indexes for table `batik`
---
-ALTER TABLE `batik`
-  ADD KEY `kode_brg` (`kode_brg`);
-
---
 -- Indexes for table `pria`
 --
 ALTER TABLE `pria`
   ADD PRIMARY KEY (`kode_brg`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
+
+--
 -- Indexes for table `wanita`
 --
 ALTER TABLE `wanita`
   ADD PRIMARY KEY (`kode_brg`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `batik`
---
-ALTER TABLE `batik`
-  ADD CONSTRAINT `batik_ibfk_1` FOREIGN KEY (`kode_brg`) REFERENCES `wanita` (`kode_brg`),
-  ADD CONSTRAINT `batik_ibfk_2` FOREIGN KEY (`kode_brg`) REFERENCES `anak_anak` (`kode_brg`),
-  ADD CONSTRAINT `batik_ibfk_3` FOREIGN KEY (`kode_brg`) REFERENCES `pria` (`kode_brg`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

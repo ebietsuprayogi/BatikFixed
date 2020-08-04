@@ -22,9 +22,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.php">Contact</a>
               </li>
-              <!-- <li class="nav-item cta">
+              <li class="nav-item">
                 <a class="nav-link" href="login.php"><span>Login</span></a>
-              </li> -->
+              </li>
             </ul>
           </div>
         </div>

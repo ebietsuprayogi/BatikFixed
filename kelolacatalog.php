@@ -5,12 +5,15 @@
         header("Location: login.php");
     }
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <title>Kelola Catalog Page - Batik Mantap</title>
+<head>
 <?php
 include('layouts/admincss.php');
 ?>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<link href="assets/css/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
   <body>
     <div class="wrapper">
       <div class="side-menu">
@@ -23,7 +26,6 @@ include('layouts/admincss.php');
             <li><a href="dashboard.php"><i class="fa fa-server" aria-hidden="true"></i><span class="text"> Dashboard </span></a>
             <li><a href="kelolacatalog.php"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="text"> Kelola Catalog</span></a></li>
             <li><a href="controller/logout.php"><i class="fa fa-arrows-alt" aria-hidden="true"></i><span class="text"> Logout</span></a></li>
-            </li>
           </ul>
         </div>
       </div>
@@ -74,13 +76,16 @@ include('layouts/admincss.php');
             </tbody>
         </table>
         </div>
+        </div>
         <!-- pembatas -->
-        <div class="section-title">Kelola Catalog Pria</div>
+
+        <div class="main-section">
+          <div class="section-title">Kelola Catalog Pria</div>
           <div class="table">
           <a class="btn btn-primary" href="tablecrud/tambahpria.php">Add New Catalog</a>
           <table class="table table-bordered dataTable" id="tableUser" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
             <thead>
-            <tr role="row">
+                <tr role="row">
                     <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending"  style="width: 30px;">No</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 127px;">Product Code</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 127px;">Product Name</th>
@@ -115,13 +120,16 @@ include('layouts/admincss.php');
             </tbody>
         </table>
         </div>
+        </div>
         <!-- pembatas -->
-        <div class="section-title">Kelola Catalog Wanita</div>
+
+        <div class="main-section">
+          <div class="section-title">Kelola Catalog Wanita</div>
           <div class="table">
           <a class="btn btn-primary" href="tablecrud/tambahwanita.php">Add New Catalog</a>
           <table class="table table-bordered dataTable" id="tableUser" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
             <thead>
-            <tr role="row">
+                <tr role="row">
                     <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending"  style="width: 30px;">No</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 127px;">Product Code</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 127px;">Product Name</th>
@@ -156,17 +164,13 @@ include('layouts/admincss.php');
             </tbody>
         </table>
         </div>
+        </div>
         <!-- pembatas -->
         
       </div>
     </div>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $('#tableUser').dataTable( {
-              "pagingType": "full_numbers"
-          } );
-      } );
-  </script>
+
+    <!-- JS -->
+
   </body>
 </html>
